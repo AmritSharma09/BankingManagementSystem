@@ -221,7 +221,7 @@ public void resister() throws Exception{
           try{
               
                 Class.forName("oracle.jdbc.driver.OracleDriver");                  
-       Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+       Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
        PreparedStatement ps4 = con.prepareStatement("insert into administrators values(ad_id.NEXTVAL,?,?,?,?)");
        ps4.setString(1,fnameTxt.getText());
        ps4.setString(2,surNameTxt.getText());
