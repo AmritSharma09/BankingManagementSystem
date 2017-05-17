@@ -30,7 +30,7 @@ l12.setVisible(false);t4.setVisible(false);l13.setVisible(false);t5.setVisible(f
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//INITIALIZE ALL VISIBLE COMPONENT
         l9 = new javax.swing.JLabel();
         l1 = new javax.swing.JLabel();
         t1 = new javax.swing.JTextField();
@@ -124,6 +124,7 @@ l12.setVisible(false);t4.setVisible(false);l13.setVisible(false);t5.setVisible(f
         l10.setBounds(61, 223, 143, 32);
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+	    //ADD SOME STRING IN COMBO BOX WHICH SPECIFY WHAT TYPE OF TRANSACTION IS
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--Select--", "Cheque", "Draft", "NEFT", "RTGS", "Transfer" }));
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(233, 229, 111, 23);
@@ -183,7 +184,7 @@ l12.setVisible(false);t4.setVisible(false);l13.setVisible(false);t5.setVisible(f
         getContentPane().add(deposite1);
         deposite1.setBounds(480, 350, 213, 46);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\edit_pic\\deposit1100.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("PIC DESITINATION PATH")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1100, 480);
 
@@ -207,7 +208,7 @@ public String GetPhoneNo(String AccountNo)
         
         try{
 					Class.forName("oracle.jdbc.driver.OracleDriver");
-					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 					PreparedStatement ps = con.prepareStatement("Select mobile from accounts where ACCNO =?");
 					
 					ps.setInt(1,Integer.parseInt(AccountNo));
@@ -237,7 +238,7 @@ try{
     
                         t1.setBorder(borderBlack);
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 		    PreparedStatement ps=con.prepareStatement("Select FIRSTNAME||' '||MIDNAME||' '||LASTNAME as Name,MOBILE,CITY from ACCOUNTS where ACCNO = ?");
 			ps.setInt(1,Integer.parseInt(t1.getText()));	
 			ResultSet rs = ps.executeQuery();
@@ -282,7 +283,7 @@ con.close();
  else
  try{  
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-	    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+	    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
     PreparedStatement ps=con.prepareStatement("insert into TRANSACTIONS values(traid.NEXTVAL,?,?,?,?,SYSDATE,?,?)");
 	//PreparedStatement ps=con.prepareStatement("insert into cus values(14,'Ahbcf','ef')");
 	ps.setInt(1,Integer.parseInt(t1.getText()));
@@ -324,7 +325,7 @@ if(t1.getText().equals(""))
 				t1.setBorder(borderBlack);
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 			PreparedStatement ps=con.prepareStatement("select firstName||' '||LastName as Name,nvl( (Select sum(ammount) from accbalence where accno=accounts.accno),0) as Balence,nvl(pic,'H:\\EDUCATION\\IMPORTANT DOCUMENT\\10.jpg') as pic from accounts where accno=?");
 			ps.setInt(1,Integer.parseInt(Accno));
 			ResultSet rs = ps.executeQuery();
