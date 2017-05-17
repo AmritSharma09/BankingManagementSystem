@@ -38,7 +38,7 @@ public class EditAccount extends javax.swing.JFrame{
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//INITIALIZE ALL VISIBLE COMPONENT
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
@@ -367,7 +367,7 @@ public class EditAccount extends javax.swing.JFrame{
         getContentPane().add(jButton6);
         jButton6.setBounds(700, 620, 110, 35);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\edit_pic\\withdraw1.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("PIC DESTINATION PATH")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1380, 740);
@@ -452,7 +452,7 @@ public class EditAccount extends javax.swing.JFrame{
 				try
 				{
 					Class.forName("oracle.jdbc.driver.OracleDriver");
-			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 					PreparedStatement ps1 = con.prepareStatement("update accounts set ACCTYPE = ?,PREFIX = ?,FIRSTNAME = ?,MIDNAME = ?,LASTNAME = ?,DOB = ?,MARITAL = ?,GUARDIAN = ?,PREFIX1 = ?,GUARDIANNAME = ?,STREET = ?,DIST = ?,STATE = ?,CITY = ?,PIN = ?,MOBILE = ?,EMAIL = ?,PIC= ?,sign = ?  WHERE ACCNO = ?");
 					
 //					if(male.isSelected() == true){
@@ -580,22 +580,13 @@ if(searchText.getText().equals("")){
 				try{
 					
 					Class.forName("oracle.jdbc.driver.OracleDriver");
-			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 					PreparedStatement ps = con.prepareStatement("delete accounts where accNo = ?");
 				
 					ps.setInt(1,Integer.parseInt(accNo.getText()));
 					ps.executeQuery();
 					con.close();
-					/* deleteText.setText("");
-					l1.setVisible(false); l2.setVisible(false); l3.setVisible(false); l4.setVisible(false);
-					l5.setVisible(false); l6.setVisible(false); l7.setVisible(false); l8.setVisible(false);
-					l9.setVisible(false); l10.setVisible(false); l11.setVisible(false); l12.setVisible(false);
-					branchCodeLable.setVisible(false); l15.setVisible(false); serialLable.setVisible(false);
-					
-					branchName.setVisible(false); ifsc.setVisible(false); branchMng.setVisible(false);
-					landMark.setVisible(false); district.setVisible(false); state.setVisible(false); pin.setVisible(false);
-					city.setVisible(false); branchConNo.setVisible(false);
-					sub.setVisible(false); clr.setVisible(false); edit.setVisible(false); */	
+						
 					JOptionPane.showMessageDialog(message, "Record Deletion SuccessFull.");
                                         this.searchText.setText(" ");accNo.setText(" "); fNAME.setText(" "); mName.setText(" ");
                                         this.piclabel.setIcon(null);
@@ -614,8 +605,7 @@ if(searchText.getText().equals("")){
 
 
         public void search() throws Exception{
-//            java.text.SimpleDateFormat ft = new java.text.SimpleDateFormat("dd/MM/yyyy");
-//				String dobstr=ft.format(this.dob.getDate());
+
                                 System.out.println("HELLO");
            if(searchText.getText().equals(""))
 			{
@@ -628,7 +618,7 @@ if(searchText.getText().equals("")){
                             try
 				{	//accNo.setEditable(false);
 					Class.forName("oracle.jdbc.driver.OracleDriver");
-Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 PreparedStatement ps = con.prepareStatement("select ACCTYPE,ACCNO,PREFIX,FIRSTNAME,MIDNAME,LASTNAME,GUARDIAN,PREFIX1,GUARDIANNAME,DOB,MARITAL,STREET,DIST,STATE,CITY,PIN,MOBILE,EMAIL,nvl(pic,'H:\\a pic\\no-profile.png') as picture,nvl(sign,'H:\\a pic\\no sig.jpg') as signature FROM ACCOUNTS where ACCNO = ?");
 					
 			ps.setInt(1,Integer.parseInt(searchText.getText()));
@@ -649,18 +639,7 @@ PreparedStatement ps = con.prepareStatement("select ACCTYPE,ACCNO,PREFIX,FIRSTNA
                                             father.setSelectedItem(rs.getString("GUARDIAN"));
                                             pre1.setSelectedItem(rs.getString("PREFIX1"));
                                             gName.setText(rs.getString("GUARDIANNAME"));
-                                            //dobstr.s(rs.getString("DOB"));	
-
-                                            //age.setText(rs.getString("AGE"));
-                                            //nation.select(rs.getString("NATION"));
-                                           // genderOpt.select(rs.getString("GENDER"));
-//                                            String gen = rs.getString("GENDER");
-//                                            if(gen.equals("Male"))
-//                                                    male.setSelected(true);
-//                                            else
-//                                                    fem.setSelected(true);
-//
-//                                            mMaidenName.setText(rs.getString("MOTHER"));
+                                            
                                             mri.setSelectedItem(rs.getString("MARITAL"));
                                           //  uid.setText(rs.getString("UIDNO"));
                                             landMark.setText(rs.getString("STREET"));
@@ -676,9 +655,7 @@ PreparedStatement ps = con.prepareStatement("select ACCTYPE,ACCNO,PREFIX,FIRSTNA
                                              piclabel.setIcon(im);
                                              javax.swing.ImageIcon sg= new javax.swing.ImageIcon(rs.getString("signature"));
                                              signlabel.setIcon(sg);
-//                                            nomName.setText(rs.getString("NOMINNAME"));
-//                                            nomRelation.setText(rs.getString("NOMINREL"));
-//                                            nomDob.setText(rs.getString("NOMINDOB"));
+//                                            
 					}
                         
 					con.close();
@@ -702,105 +679,9 @@ PreparedStatement ps = con.prepareStatement("select ACCTYPE,ACCNO,PREFIX,FIRSTNA
             
             
             
-        }String genderOpt;
-//    public void submit() throws Exception
-//      {
-//         if(this.fNAME.getText().equals(""))
-//			{
-//				//fName.setBackground(Color.RED); 
-//				
-//				JOptionPane.showMessageDialog((Component)null,"Invalid Branch Code","Warning",JOptionPane.WARNING_MESSAGE);
-//				//fName.setBackground(Color.GREEN);
-//			}
-//			else if(this.accType.getSelectedItem().equals("--Select--")){
-//					JOptionPane.showMessageDialog((Component)null,"Please Select Account Type","Warning",JOptionPane.WARNING_MESSAGE);
-//					
-//			}
-//			else if(this.father.getSelectedItem().equals("--Select--")){
-//					JOptionPane.showMessageDialog((Component)null,"Please Select Name of","Warning",JOptionPane.WARNING_MESSAGE);
-//					
-//			}
-////			else if(this.nation.getSelectedItem().equals("--Select--")){
-////					JOptionPane.showMessageDialog((Component)null,"Please Select Nationality","Warning",JOptionPane.WARNING_MESSAGE);
-////					
-////			}
-//			else if(this.mri.getSelectedItem().equals("--Select--")){
-//					JOptionPane.showMessageDialog((Component)null,"Please Select Marital Status","Warning",JOptionPane.WARNING_MESSAGE);
-//					
-//			}
-//			  
-//			else{
-//                            java.text.SimpleDateFormat ft = new java.text.SimpleDateFormat("dd/MM/yyyy");
-//				String dobstr=ft.format(this.jDateChooser1.getDate());
-//                               // String nomdob = ft.format(this.jDateChooser2.getDate());
-//				try{
-//					 Class.forName("oracle.jdbc.driver.OracleDriver");
-//			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
-//					
-//                                   String sql= "insert into accounts(REFID,ACCTYPE,BCODE,IFSCODE,ACCNO,PREFIX,FIRSTNAME,MIDNAME,LASTNAME,";
-//                                    sql+="GUARDIAN,PREFIX1,GUARDIANNAME,DOB,AGE,NATION,GENDER,MOTHER,MARITAL,UIDNO,STREET,DIST,STATE,CITY, ";
-//                                            sql+= "PIN,PHONE,MOBILE,EMAIL,NOMINNAME,NOMINREL,NOMINDOB) ";
-//                                     sql+="values (refid.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?,to_date(?,'dd/mm/yyyy'),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,to_date(?,'dd/mm/yyyy'))";
-//                                 
-//                                 
-//                                 
-//                                 PreparedStatement ps1 = con.prepareStatement(sql);
-//					
-////					if(male.isSelected() == true){
-////							genderOpt = "Male";
-////					}
-////					else if(fem.isSelected() == true){
-////							genderOpt = "Female";
-////					}
-//
-//					ps1.setString(1,this.accType.getSelectedItem().toString());
-//					//ps1.setString(2,bCode.getText());
-//					//ps1.setString(3,ifsc.getText());
-//					ps1.setInt(4,Integer.parseInt(accNo.getText().trim()));
-//					ps1.setString(5,this.prefix.getSelectedItem().toString());
-//					ps1.setString(6,fNAME.getText());
-//					ps1.setString(7,lName.getText());
-//					ps1.setString(8,mName.getText());
-//					ps1.setString(9,this.father.getSelectedItem().toString());
-//					ps1.setString(10,this.pre1.getSelectedItem().toString());
-//					ps1.setString(11,gName.getText());
-//                                        
-//					ps1.setString(12,dobstr);
-//					//ps1.setInt(13,Integer.parseInt(age.getText().trim()));
-//					//ps1.setString(14,this.nation.getSelectedItem().toString());
-//					ps1.setString(15,genderOpt);
-//					//ps1.setString(16,mMaidenName.getText());
-//					ps1.setString(17,this.mri.getSelectedItem().toString());
-//					//ps1.setInt(18,Integer.parseInt(uid.getText().trim()));
-//					ps1.setString(19,landMark.getText());
-//					ps1.setString(20,district.getText());
-//					ps1.setString(21,state.getText());
-//					ps1.setString(22,city.getText());
-//					ps1.setInt(23,Integer.parseInt(pin.getText().trim()));
-//					//ps1.setString(24,telNo.getText());
-//					ps1.setString(25,mobNo.getText());
-//					ps1.setString(26,email.getText());
-//					//ps1.setString(27,nomName.getText());
-////					ps1.setString(28,nomRelation.getText());
-////					ps1.setString(29,nomdob);
-//					
-//					ps1.executeQuery();
-//					con.close();
-//					JOptionPane.showMessageDialog(message, "Record Save Successfully");
-//					
-//				}
-//				catch(Exception ex){
-//					//System.out.println(ex.getMessage());
-//					//System.err.println("Got an exception! "); 
-//					//System.err.println(ex.getMessage());
-//				
-//					JOptionPane.showMessageDialog(message,ex.getMessage()+ dobstr);
-//				}
-//				
-//				}
-//          
-//          
-//      }
+        }
+	String genderOpt;
+
     public void clear() throws Exception{
     this.searchText.setText(" ");accNo.setText(" "); fNAME.setText(" "); mName.setText(" ");
     this.piclabel.setIcon(null);
