@@ -7,7 +7,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
 
-
+//THIS CLASS IS FOR GET SMS GETWAY THROUGH WHICH WE SEND MESSAGE TO ACCOUNT HOLDER IF ANY TRANSACTION IS PERFORMED WITH HIS RESPECTION ACCOUNT
 public class NewClass {
     private final String USER_AGENT = "Mozilla/5.0";
     public static String escapeHTML(String s) {
@@ -33,49 +33,16 @@ public class NewClass {
 }
     public void sendSms(String pno, String sms){
    try{
-//   Socket sk=new Socket("www.flexonLabs.com",80);
-//   BufferedReader br=new BufferedReader(new InputStreamReader(sk.getInputStream()));
-//   String str;
-//   while((str=br.readLine())!=null){
-//       System.out.print(str);
-//
-//   
-//   }
+
        
-        String urlString="http://flexonlabs.com/sms.aspx?pno="+pno+"&message="+sms; 
+        String urlString="http://THAT_WEBSITE_LINK_FROM_WHERE_YOU_GET_THIS_SERVICE/sms.aspx?pno="+pno+"&message="+sms; 
         System.out.println(escapeHTML(urlString));
   URL url=new URL(escapeHTML(urlString));
-//   URLConnection con= url.openConnection();
-//   BufferedReader br=new BufferedReader(new InputStreamReader(con.getInputStream()));
-//   String str;
-//   while((str=br.readLine())!=null){
-//       System.out.print(str);
-//
-//   
-//   }
-//  
-//   
-//   
+   
 
  
  
 
-//    HttpClient client = new DefaultHttpClient();
-//    HttpGet request = new HttpGet();
-//    request.setURI(url);
-//   // HttpGet request = new HttpGet("http://flexonlabs.com/Default/Pages/Default.aspx?Type=Info");
-//    HttpResponse response = client.execute(request);
-
-   
-    //StringBuffer response = new StringBuffer();
-    //while ((line = rd.readLine()) != null) {
-              //response.append(line);
-     
-
-    //System.out.println(response.toString());
-   
-   
-   // URL url = new URL (MATRIXURL);
 
  URLConnection conn = url.openConnection();
  conn.setDoOutput (true);
