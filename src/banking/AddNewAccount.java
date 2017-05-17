@@ -34,6 +34,7 @@ public class AddNewAccount extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+	    //Initialize all visible componet in this form
         buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
@@ -100,25 +101,25 @@ public class AddNewAccount extends javax.swing.JFrame{
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
 
-        setTitle("New Account Form");
+        setTitle("New Account Form"); //set frorm title
         setFocusTraversalPolicyProvider(true);
 
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(1247, 2297));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1247, 2297));//set scrol size that shown on screen
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1200, 987));
 
-        landMark.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        landMark.setFont(new java.awt.Font("Tahoma", 1, 12)); // font style &size
 
-        l4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        l4.setFont(new java.awt.Font("Tahoma", 1, 14)); // font style &size
         l4.setForeground(new java.awt.Color(102, 0, 0));
         l4.setText("Name of  *");
 
-        prefix.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        prefix.setFont(new java.awt.Font("Tahoma", 1, 12));// font style &size
         prefix.setForeground(new java.awt.Color(153, 153, 255));
-        prefix.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mr.", "Mrs" }));
+        prefix.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mr.", "Mrs" })); //adding text in comboBox
 
-        l6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        l6.setForeground(new java.awt.Color(102, 0, 51));
+        l6.setFont(new java.awt.Font("Tahoma", 1, 14)); // font style &size
+        l6.setForeground(new java.awt.Color(102, 0, 51));//set lable size on the form
         l6.setText("Gender");
 
         l23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -167,7 +168,7 @@ public class AddNewAccount extends javax.swing.JFrame{
         });
 
         mri.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        mri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--Select--", "Single", "Married" }));
+        mri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--Select--", "Single", "Married" })); //adding text in combobox
 
         mobNo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
@@ -767,7 +768,7 @@ String genderOpt;
                                     //resister with oracle driver
 					 Class.forName("oracle.jdbc.driver.OracleDriver");
                                          //make connection by signing with user nameand password
-			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 				//store all data in sql in string from 	
                                    String sql= "insert into accounts(REFID,ACCTYPE,BCODE,IFSCODE,ACCNO,PREFIX,FIRSTNAME,MIDNAME,LASTNAME,";
                                     sql+="GUARDIAN,PREFIX1,GUARDIANNAME,DOB,AGE,NATION,GENDER,MOTHER,MARITAL,UIDNO,STREET,DIST,STATE,CITY, ";
@@ -849,7 +850,7 @@ String genderOpt;
 	int Size=0;
 	try{
 	    Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
         PreparedStatement ps=con.prepareStatement("Select max(refid)+1 from accounts");
 		 ResultSet rs = ps.executeQuery();
 			 while(rs.next())
