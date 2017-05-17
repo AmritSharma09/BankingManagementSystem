@@ -23,7 +23,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-        setBounds(150,100,975,550);
+        setBounds(150,100,975,550); //LOGIN PAGE SIZE
         
     }
 
@@ -35,7 +35,7 @@ public class LoginPage extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//INITIALIZE ALL VISIBLE COMPONENT
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -81,7 +81,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 51, 51));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\images\\login-button-pn.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("PIC DESTINATION PATH")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -92,7 +92,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 51, 51));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\images\\cancel-button-png-hi.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("PIC DESTINATION PATH")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -101,11 +101,11 @@ public class LoginPage extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(700, 300, 90, 40);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\images\\administrator1.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("PIC DESTINATION PATH")); // NOI18N
         getContentPane().add(jLabel4);
         jLabel4.setBounds(370, 130, 150, 150);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\edit_pic\\login background1.jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("PIC DESTINATION PATH")); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 970, 510);
 
@@ -121,7 +121,7 @@ int count=0;
 try{
 
 Class.forName("oracle.jdbc.driver.OracleDriver");
-Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 PreparedStatement ps5 = con.prepareStatement("select count(*) from administrators where UserName = ? and password=?");
 ps5.setString(1, jTextField1.getText());
 ps5.setString(2, jPasswordField1.getText());
