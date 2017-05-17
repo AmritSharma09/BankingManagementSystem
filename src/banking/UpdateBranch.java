@@ -378,7 +378,7 @@ public void delete() throws Exception{ //define delete opration
           
       
 		Class.forName("oracle.jdbc.driver.OracleDriver"); //resister with Oracle Driver
-	     Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852"); // establish connection with database
+	     Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD"); // establish connection with database
 	PreparedStatement ps = con.prepareStatement("delete branch where bcode = ? "); //take valid branchCode and delete that branch infrommation from branch database
 					
 					ps.setString(1,deleteText.getText().toUpperCase());				
@@ -408,7 +408,7 @@ public void delete() throws Exception{ //define delete opration
         try{
             searchText.setBorder(borderBlack);
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 		    PreparedStatement ps = con.prepareStatement("Select * from branch where bcode=? "); //select all data from branch table
 					
 			ps.setString(1,searchText.getText().toUpperCase());
@@ -507,7 +507,7 @@ public void delete() throws Exception{ //define delete opration
                                                 
 			
 		  Class.forName("oracle.jdbc.driver.OracleDriver");
-          Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","Golu","852");
+          Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","852");
           //update branch infromation 
 		  PreparedStatement ps=con.prepareStatement("update branch set bmng = ?,bstreet = ?,bdist = ?,bstate = ?,bpin = ?,bcity = ?,bcont = ? where bcode = ? ");
 					
