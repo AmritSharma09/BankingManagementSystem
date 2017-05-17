@@ -34,7 +34,7 @@ int ct=0;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//INITIALIZE ALL VISIBLE COMPONENT
         userLable = new javax.swing.JLabel();
         usenameTxt = new javax.swing.JTextField();
         search = new javax.swing.JButton();
@@ -170,7 +170,7 @@ int ct=0;
         getContentPane().add(jLabel1);
         jLabel1.setBounds(340, 20, 370, 30);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\edit_pic\\glossy_background-wallpaper-1920x1080.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("PIC DESTINATION PATH")); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 1190, 450);
 
@@ -217,7 +217,7 @@ int ct=0;
         try{
     Class.forName("oracle.jdbc.driver.OracleDriver");
                          
-    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
        PreparedStatement ps = con.prepareStatement("update administrators set fName=?,surName =?,UserName =?,password =? where UserName =? ");
      			ps.setString(5,usenameTxt.getText());
                         ps.setString(1,fnameTxt.getText());
@@ -265,7 +265,7 @@ public void search() throws Exception{
                         }
     Class.forName("oracle.jdbc.driver.OracleDriver");
                          
-    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
        PreparedStatement ps = con.prepareStatement("Select fName,surName,UserName,password from administrators where userName=? and password=? ");
        ps.setString(1,usenameTxt.getText());
        ps.setString(2, jPasswordField1.getText());
