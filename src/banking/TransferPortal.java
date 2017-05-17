@@ -44,7 +44,7 @@ public class TransferPortal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//INITIALIZE VISIBLE COMPONENT
         lFrom = new javax.swing.JLabel();
         lAccDis = new javax.swing.JLabel();
         fAccNo = new javax.swing.JTextField();
@@ -367,7 +367,7 @@ public class TransferPortal extends javax.swing.JFrame {
         getContentPane().add(clr1);
         clr1.setBounds(723, 571, 121, 35);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\edit_pic\\withdraw1.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("PIC DESTINATION PATH")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 10, 1240, 650);
 
@@ -404,7 +404,7 @@ public class TransferPortal extends javax.swing.JFrame {
         
         try{
 					Class.forName("oracle.jdbc.driver.OracleDriver");
-					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 					PreparedStatement ps = con.prepareStatement("Select mobile from accounts where ACCNO =?");
 					
 					ps.setInt(1,Integer.parseInt(AccountNo));
@@ -435,7 +435,7 @@ public class TransferPortal extends javax.swing.JFrame {
 		
 				try{
 					Class.forName("oracle.jdbc.driver.OracleDriver");
-					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 					PreparedStatement ps = con.prepareStatement("Select accNo,bCode,ifsCode,firstName,city,pin,state from accounts where accNo = ?");
 					
 					ps.setInt(1,Integer.parseInt(fAccNo.getText()));
@@ -488,7 +488,7 @@ if(tAccNo.getText().equals(""))
 			
 				try{
 						Class.forName("oracle.jdbc.driver.OracleDriver");
-						Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+						Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 						PreparedStatement ps = con.prepareStatement("Select accNo,bCode,ifsCode,firstName,city,pin,state from accounts where accNo = ?");
 					
 						ps.setInt(1,Integer.parseInt(tAccNo.getText()));
@@ -558,7 +558,7 @@ if(accNoLable1.getText().equals("")  /* accNoLable.getText().equals("") */)
 					try
 					{
 						Class.forName("oracle.jdbc.driver.OracleDriver");
-						Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+						Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 						PreparedStatement ps = con.prepareStatement("insert into TRANSACTIONS(TID,ACCNO,TYPE,PMODE,REFNO,DOT,AMMOUNT,REMARK) values(traid.NEXTVAL,?,'Withdraw',?,?,SYSDATE,?,'Transfer')");
 						
 						ps.setInt(1,Integer.parseInt(accNoLable.getText()));
@@ -610,7 +610,7 @@ if(tAccNo.getText().equals(""))
 				tAccNo.setBorder(borderBlack);
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 			PreparedStatement ps=con.prepareStatement("select firstName||' '||LastName as Name,nvl( (Select sum(ammount) from accbalence where accno=accounts.accno),0) as Balence,nvl(pic,'H:\\EDUCATION\\IMPORTANT DOCUMENT\\10.jpg') as pic from accounts where accno=?");
 			ps.setInt(1,Integer.parseInt(Accno));
 			ResultSet rs = ps.executeQuery();
@@ -641,7 +641,7 @@ public double checkAmmount()
 	 double amt=0.0;
 		try{
 					 Class.forName("oracle.jdbc.driver.OracleDriver");
-			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 					 PreparedStatement ps2=con.prepareStatement("select sum(ammount) as balence from accbalence where Accno=?");
 		            ps2.setInt(1,Integer.parseInt(accNoLable.getText()));
 				ResultSet rs =	ps2.executeQuery();
