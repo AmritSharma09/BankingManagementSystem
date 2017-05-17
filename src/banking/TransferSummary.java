@@ -175,7 +175,7 @@ try{
 	        int i=0;
 			
             Class.forName("oracle.jdbc.driver.OracleDriver");
-	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 PreparedStatement ps8=con.prepareStatement("Select to_char(doT,'dd/mm/yyyy') as dot,pMode,refNo,type,ammount from transactions where ACCNO = ? and dot between ? and ? order by dot desc");
       ps8.setInt(1,Integer.parseInt(t1.getText()));
       ps8.setString(2,dt1);
@@ -203,7 +203,7 @@ public int datecheck(){
 int dateSize = 0;
 	try{
     Class.forName("oracle.jdbc.driver.OracleDriver");
-Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
  PreparedStatement ps=con.prepareStatement("select to_date(to_char(sysdate,'dd-mm-yyyy'),'dd-mm-yyyy')-to_date('?','dd-mm-yyyy') from dual");
  ps.setString(1,dt1);
         ResultSet rs = ps.executeQuery();
@@ -222,7 +222,7 @@ public int getsize()
 	           int Size=0;
 	try{
 	Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
         PreparedStatement ps=con.prepareStatement("Select count(*) as cnt  from transactions where ACCNO = ?");
 		  ps.setInt(1,Integer.parseInt(t1.getText()));
                   //ps.
