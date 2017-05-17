@@ -35,7 +35,7 @@ String signpath="";
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//Initialize all component
         lblpic = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -45,7 +45,7 @@ String signpath="";
 
         getContentPane().setLayout(null);
         getContentPane().add(lblpic);
-        lblpic.setBounds(71, 95, 131, 126);
+        lblpic.setBounds(71, 95, 131, 126); //set this form bound size
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(153, 102, 255));
@@ -56,7 +56,7 @@ String signpath="";
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(71, 46, 131, 31);
+        jButton1.setBounds(71, 46, 131, 31);  //set button size
 
         jButton2.setBackground(new java.awt.Color(153, 153, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
@@ -83,7 +83,7 @@ String signpath="";
         getContentPane().add(jButton3);
         jButton3.setBounds(308, 46, 159, 31);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\edit_pic\\photo_pic.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("pic destination")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 570, 430);
 
@@ -137,17 +137,17 @@ String signpath="";
     
         try{
           
-       Class.forName("oracle.jdbc.driver.OracleDriver");                  
-       Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+       Class.forName("oracle.jdbc.driver.OracleDriver");  //resister with database driver
+            //make connection with database
+       Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
+            //in prepeare statement we pass operational query to perform on database
        PreparedStatement ps5 = con.prepareStatement("update  accounts set pic=?,sign=? where refid= ?");
        ps5.setString(1,picpath);
        ps5.setString(2,signpath);
        ps5.setInt(3,refid);
-       System.out.println("DP  is" + picpath);
-       System.out.println("Signature pic is" + signpath);
-       System.out.println("refid is" + refid);
-       ps5.executeQuery();
-       con.close();
+      
+       ps5.executeQuery(); //execute the query 
+       con.close();// close the connection
        
        JOptionPane.showMessageDialog(null, "Record Update SuccessFully");
         }catch(Exception e){}
