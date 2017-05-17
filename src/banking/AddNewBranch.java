@@ -30,7 +30,7 @@ public class AddNewBranch extends javax.swing.JFrame{
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+//Initialize all Visibele COmponent
         l1 = new javax.swing.JLabel();
         l2 = new javax.swing.JLabel();
         branchCode = new javax.swing.JTextField();
@@ -58,7 +58,7 @@ public class AddNewBranch extends javax.swing.JFrame{
         state = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
 
-        setTitle("Add New Branch");
+        setTitle("Add New Branch"); //set title of form
         getContentPane().setLayout(null);
 
         l1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -222,7 +222,7 @@ public class AddNewBranch extends javax.swing.JFrame{
         getContentPane().add(state);
         state.setBounds(280, 300, 200, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\images\\branch open.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("Pic destination File")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(10, 0, 950, 540);
 
@@ -320,7 +320,7 @@ public class AddNewBranch extends javax.swing.JFrame{
                                 state.setBorder(borderRed);
     try{
 					 Class.forName("oracle.jdbc.driver.OracleDriver"); //resister with OracleDriver
-			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852"); //make connectionby giving userName and Password
+			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD"); //make connectionby giving userName and Password
 					PreparedStatement ps = con.prepareStatement("insert into Branch values(bankid.NEXTVAL,?,?,?,?,?,?,?,?,?,?)");//Insert data into branch table by taking input from corresponding textBox 
 					//ps.setInt(1,Integer.parseInt(t1.getText()));
 					ps.setString(1,this.branchCode.getText().toUpperCase());
