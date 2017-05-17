@@ -1,0 +1,94 @@
+Sequences**************
+create sequence bid start with 101 increment by 1 //Bank id
+
+create sequence refid start with 1001 increment by 1 //Account ref id
+
+create sequence traid start with 10001 increment by 1 //transection id
+
+
+
+
+Branch-----
+create table branch(
+bid int primary key,
+bcode varchar2(30) not null unique,
+bname varchar2(60),
+ifscode varchar2(30) not null unique,
+bmng varchar2(50),
+bstreet varchar2(60),
+bdist varchar2(60),
+bstate varchar2(60),
+bpin varchar2(60),
+bcity varchar2(60),
+bcont varchar2(60));
+
+Account----
+
+create table accounts(
+refID int primary key,
+accType varchar2(50) not null,
+bCode varchar2(30) not null,
+ifsCode varchar2(20) not null,
+accNo number(20)not null unique,
+aod date,
+prefix varchar2(10),
+firstName varchar2(30) not null,
+midName varchar2(30),
+lastName varchar2(30),
+guardian varchar2(30),
+prefix1 varchar2(10),
+guardianName varchar2(60),
+dob date not null,
+age  number(5) not null,
+nation varchar2(12),
+gender varchar2(10),
+mother varchar2(50),
+marital varchar2(20),
+uidNo number(20),
+street varchar2(60),
+dist varchar2(60),
+state varchar2(60),
+city varchar2(60),
+pin number(10),
+phone varchar2(60),
+mobile varchar2(60) not null,
+email varchar2(100),
+nominName varchar2(60) not null,
+nominRel varchar2(30) not null,
+nominDob date,
+constraint fk_ifsCode foreign key(ifsCode)references branch(ifscode) on delete set null);
+
+Transaction-----
+create  table transactions(
+tID int primary key,
+accNo number(20) not null,
+type varchar2(30) not null,
+pMode varchar2(20) not null,
+refNo varchar2(30) not null,
+doT timestamp(2),
+ammount number(14,2) not null,
+remark varchar2(200),
+constraint fK1_accountNo foreign key(accNo) references accounts(accNO) on delete set null);
+
+CheckBook----
+
+create table checkbook(
+cid number(10) primary key,
+accNo number(35) not null,
+cBookNo Varchar2(35) not null,
+page number(20) not null,
+doi date,
+constraint fk3_accountNo Foreign key(accNo) references account(ac_no) on delete set null)
+
+
+Create View------
+create  view accbalence
+as
+select accNo,ammount,'Deposit' as pmode from transactions where type='Deposit' 
+union 
+select accNo,ammount * -1,'Withdraw' as pmode from transactions where type='Withdraw' 
+
+
+Check Balance----
+sum(ammount) as balence from accbalence where Accno=123
+
