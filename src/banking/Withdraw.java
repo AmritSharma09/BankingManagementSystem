@@ -188,7 +188,7 @@ l12.setVisible(false);t4.setVisible(false);l13.setVisible(false);t5.setVisible(f
         getContentPane().add(Withdraw1);
         Withdraw1.setBounds(490, 390, 213, 46);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\edit_pic\\withdraw.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("PIC DESTINATION PATH")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1100, 500);
 
@@ -216,7 +216,7 @@ public String GetPhoneNo(String AccountNo)
         
         try{
 					Class.forName("oracle.jdbc.driver.OracleDriver");
-					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+					Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 					PreparedStatement ps = con.prepareStatement("Select mobile from accounts where ACCNO =?");
 					
 					ps.setInt(1,Integer.parseInt(AccountNo));
@@ -246,7 +246,7 @@ try{
 			}
                         t1.setBorder(borderBlack);
                         Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 		    PreparedStatement ps=con.prepareStatement("Select FIRSTNAME||' '||MIDNAME||' '||LASTNAME as Name,MOBILE,CITY from ACCOUNTS where ACCNO = ?");
 			ps.setInt(1,Integer.parseInt(t1.getText()));	
 			ResultSet rs = ps.executeQuery();
@@ -294,7 +294,7 @@ public void Withdraw() throws Exception{
 				{
     try{  
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-	    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+	    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 	
     PreparedStatement ps=con.prepareStatement("insert into TRANSACTIONS values(traid.NEXTVAL,?,?,?,?,SYSDATE,?,?)");
 	
@@ -329,7 +329,7 @@ public double checkAmmount()
 	 double amt=0.0;
 		try{
 					 Class.forName("oracle.jdbc.driver.OracleDriver");
-			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			         Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 					 PreparedStatement ps2=con.prepareStatement("select sum(ammount) as balence from accbalence where Accno=?");
 		            ps2.setInt(1,Integer.parseInt(t1.getText()));
 				ResultSet rs =	ps2.executeQuery();
@@ -358,7 +358,7 @@ if(t1.getText().equals(""))
 				t1.setBorder(borderBlack);
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 			PreparedStatement ps=con.prepareStatement("select firstName||' '||LastName as Name,nvl( (Select sum(ammount) from accbalence where accno=accounts.accno),0) as Balence,nvl(pic,'H:\\EDUCATION\\IMPORTANT DOCUMENT\\10.jpg') as pic from accounts where accno=?");
 			ps.setInt(1,Integer.parseInt(Accno));
 			ResultSet rs = ps.executeQuery();
