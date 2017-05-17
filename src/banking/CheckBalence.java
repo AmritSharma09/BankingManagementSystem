@@ -103,7 +103,7 @@ public class CheckBalence extends javax.swing.JFrame {
         getContentPane().add(sub1);
         sub1.setBounds(260, 310, 91, 35);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\images\\balence01.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("PIC DESTIONATION FOLDER")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 810, 430);
@@ -131,7 +131,7 @@ if(t1.getText().equals(""))
 				t1.setBorder(borderBlack);
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 			//we select name image and balance of that person
                         PreparedStatement ps=con.prepareStatement("select firstName||' '||LastName as Name,nvl( (Select sum(ammount) from accbalence where accno=accounts.accno),0) as Balence,nvl(pic,'H:\\a pic\\no-profile.png') as picture from accounts where accno=?");
 			ps.setInt(1,Integer.parseInt(this.t1.getText()));
@@ -161,40 +161,7 @@ if(t1.getText().equals(""))
 		   } catch(Exception ex){System.out.println(ex.getMessage()+"Exception");}
 			}
 }
-   /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(CheckBalence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(CheckBalence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(CheckBalence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(CheckBalence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new CheckBalence().setVisible(true);
-//            }
-//        });
-//    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
