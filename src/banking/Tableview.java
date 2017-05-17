@@ -23,8 +23,9 @@ private void fillData() throws Exception
 		Object[][] rows=new Object[size][6];
 	    int i=0;
 		
-		 Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+		 Class.forName("oracle.jdbc.driver.OracleDriver");//RESISTER WITH DATABASE DRIVER
+		//MAKE CONECTION DATABASE DRIVER MANAGER USING USERNAME AND PASSWORD
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
 		
 		    PreparedStatement ps=con.prepareStatement("Select bcode,bname,bstreet||' '||bdist||' '||bstate as baddr,bmng,bcont,ifscode from branch");
 			ResultSet rs=ps.executeQuery();	
@@ -52,7 +53,7 @@ public int getsize()
 	int Size=0;
 	try{
 	    Class.forName("oracle.jdbc.driver.OracleDriver");
-Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","GOLU","852");
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE","USERNAME","PASSWORD");
         PreparedStatement ps=con.prepareStatement("Select count(*) from branch");
 		 ResultSet rs = ps.executeQuery();
 			 while(rs.next())
@@ -97,7 +98,7 @@ Connection con=DriverManager.getConnection("jdbc:oracle:thin:@Localhost:1521:XE"
         getContentPane().add(scrollPane1);
         scrollPane1.setBounds(24, 43, 718, 396);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\GOLU\\Desktop\\New folder\\images\\login background.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("PIC DESTINATION PATH")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 770, 620);
